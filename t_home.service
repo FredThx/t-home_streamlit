@@ -1,0 +1,15 @@
+[Unit]
+Description= T-HOME, web app
+After=network.target syslog.target
+
+[Service]
+ExecStart=/usr/local/bin/streamlit run /home/pi/Devlopp/t-home_streamlit/app.py
+Type = simple
+RemainAfterExit = no
+KillMode=process
+User=root
+RemainAfterExit=no
+Killmode = process
+
+[Install]
+WantedBy=multi-user.target
