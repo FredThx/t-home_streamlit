@@ -13,7 +13,7 @@ https://www.streamlit.io/
 * sudo apt-get install libtiff5
 
 ## Installation des lib python
-pip3 install -r requirements.txt
+sudo pip3 install -r requirements.txt
 
 ## Installation du service
 

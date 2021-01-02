@@ -1,12 +1,11 @@
 import streamlit as st
-
 from bokeh.plotting import figure
 from bokeh.models import LinearAxis, Range1d
-
 from tempeDB import *
 from datetime import datetime
 
-tempeDB = TempeDB(host = '192.168.10.174', user = 'invite')
+tempeDB = TempeDB(host = '192.168.10.170', user = 'invite')
+date_format = "%Y-%m-%d %H:%M:%S"
 
 st.sidebar.title("T-HOME")
 liste_capteurs = [None] + tempeDB.get_capteurs()
@@ -16,7 +15,6 @@ date_debut = st.sidebar.date_input("Date de début")
 date_fin = st.sidebar.date_input("Date de fin")
 multi_axes = st.sidebar.checkbox("Multi_axes Y", value = False)
 
-date_format = "%Y-%m-%d %H:%M:%S"
 
 @st.cache
 def get_data(capteur,date_debut, date_fin):

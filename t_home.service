@@ -1,15 +1,18 @@
 [Unit]
 Description= T-HOME, web app
-After=network.target syslog.target
+requires=mnt-cifs.mount
+After=network.target syslog.target, mnt-cifs.mount
 
 [Service]
-ExecStart=/usr/local/bin/streamlit run /home/pi/Devlopp/t-home_streamlit/app.py
+ExecStart=/usr/local/bin/streamlit run home/fredthx/Devlopp/t-home_streamlit/app.py
 Type = simple
 RemainAfterExit = no
 KillMode=process
 User=root
 RemainAfterExit=no
 Killmode = process
+Restart=on-failure
+RestartSec=5s
 
 [Install]
 WantedBy=multi-user.target
